@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbexoupsucxwq"]
+
+[ext_resource type="Script" uid="uid://dqwvc0tbjldq8" path="res://Assembiota_Ecosystem/control_slider.gd" id="1_dsso6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dt3ht"]
+bg_color = Color(0.5957031, 0.5957031, 0.5957031, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsso6"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="Theme" id="Theme_dt3ht"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dv7b1"]
+bg_color = Color(0.59607846, 0.59607846, 0.59607846, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1auac"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="ControlSlider" type="Node2D"]
+script = ExtResource("1_dsso6")
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 44.0
+offset_top = 58.0
+offset_right = 414.0
+offset_bottom = 216.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dt3ht")
+
+[node name="Panel" type="Panel" parent="Panel2"]
+layout_mode = 0
+offset_top = -4.0
+offset_right = 371.0
+offset_bottom = 135.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dsso6")
+
+[node name="HSlider" type="HSlider" parent="Panel2/Panel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 14.0
+offset_right = 230.0
+offset_bottom = 132.0
+theme = SubResource("Theme_dt3ht")
+theme_override_constants/center_grabber = 0
+theme_override_constants/grabber_offset = 0
+tick_count = 4
+
+[node name="Panel4" type="Panel" parent="."]
+offset_left = 302.0
+offset_top = 44.0
+offset_right = 472.19116
+offset_bottom = 207.0
+scale = Vector2(1.199997, 1.199997)
+theme_override_styles/panel = SubResource("StyleBoxFlat_dv7b1")
+
+[node name="Panel3" type="Panel" parent="Panel4"]
+layout_mode = 0
+offset_left = 0.7812276
+offset_top = -17.968786
+offset_right = 170.9724
+offset_bottom = 145.03122
+theme_override_styles/panel = SubResource("StyleBoxFlat_1auac")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel4/Panel3"]
+position = Vector2(81.71898, 78.80227)
+
+[connection signal="value_changed" from="Panel2/Panel/HSlider" to="." method="_on_h_slider_value_changed"]

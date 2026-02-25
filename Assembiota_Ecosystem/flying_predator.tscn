@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://3w3xgqkv8sqy"]
+
+[ext_resource type="Script" uid="uid://5n4ehgh4g8fd" path="res://Assembiota_Ecosystem/flying_predator.gd" id="1_3hhrq"]
+[ext_resource type="Texture2D" uid="uid://cgjc6tm421i8e" path="res://Assembiota_Ecosystem/resources/flying_pred_sheet.png" id="1_ix612"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hhrq"]
+atlas = ExtResource("1_ix612")
+region = Rect2(0, 0, 780, 751)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dhel"]
+atlas = ExtResource("1_ix612")
+region = Rect2(780, 0, 780, 751)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxjdx"]
+atlas = ExtResource("1_ix612")
+region = Rect2(1560, 0, 780, 751)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_564yk"]
+atlas = ExtResource("1_ix612")
+region = Rect2(2340, 0, 780, 751)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hj3m"]
+atlas = ExtResource("1_ix612")
+region = Rect2(3120, 0, 780, 751)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmev4"]
+atlas = ExtResource("1_ix612")
+region = Rect2(0, 751, 780, 751)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vue5g"]
+atlas = ExtResource("1_ix612")
+region = Rect2(780, 751, 780, 751)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4i3o"]
+atlas = ExtResource("1_ix612")
+region = Rect2(1560, 751, 780, 751)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68iq7"]
+atlas = ExtResource("1_ix612")
+region = Rect2(2340, 751, 780, 751)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl4nw"]
+atlas = ExtResource("1_ix612")
+region = Rect2(3120, 751, 780, 751)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ac7o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hhrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dhel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxjdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_564yk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hj3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmev4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vue5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4i3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68iq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kl4nw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 15.0
+}]
+
+[node name="FlyingPredator" type="Node2D"]
+script = ExtResource("1_3hhrq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.4293281, 1.4291004)
+sprite_frames = SubResource("SpriteFrames_4ac7o")
+animation = &"idle"
+frame = 3
+frame_progress = 0.45442513
+metadata/_edit_group_ = true

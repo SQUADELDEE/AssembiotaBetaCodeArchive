@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://cm2lhpxtmvvwc"]
+
+[ext_resource type="StyleBox" uid="uid://coop8h1v8yoht" path="res://Eukaryote_Cell/smart_cell_grid.tres" id="1_8rpm1"]
+[ext_resource type="Script" uid="uid://ds5w4xojb1uum" path="res://Eukaryote_Cell/button_storage_unit.gd" id="1_pn1em"]
+[ext_resource type="Texture2D" uid="uid://dv5bswgcwaig6" path="res://Eukaryote_Cell/resources/Nucleus_w_Rough_ER.png" id="2_pn1em"]
+[ext_resource type="Texture2D" uid="uid://cxjjr1okkihfq" path="res://Eukaryote_Cell/resources/Vacuole.png" id="3_tqh2a"]
+[ext_resource type="Texture2D" uid="uid://cmgne5lw6kps3" path="res://Eukaryote_Cell/resources/Smooth_ER.png" id="4_6j23d"]
+[ext_resource type="Texture2D" uid="uid://4o47n0myo31b" path="res://Eukaryote_Cell/resources/Golgi.png" id="5_f8ohg"]
+[ext_resource type="Texture2D" uid="uid://clhy8kmaxujnt" path="res://Eukaryote_Cell/resources/Mitochondria.png" id="6_0fp4l"]
+
+[node name="ButtonStorageUnit" type="Node2D"]
+script = ExtResource("1_pn1em")
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 390.0
+offset_top = 49.0
+offset_right = 766.0
+offset_bottom = 616.92834
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("1_8rpm1")
+
+[node name="Panel3" type="Panel" parent="."]
+offset_left = 388.0
+offset_top = -62.0
+offset_right = 764.0
+offset_bottom = 48.928345
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("1_8rpm1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel3"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 26.0
+offset_right = 566.0
+offset_bottom = 123.0
+theme_override_font_sizes/normal_font_size = 39
+text = "ORG BANK"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 398.0
+offset_top = 59.0
+offset_right = 744.0
+offset_bottom = 600.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Nucleus" type="TextureButton" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture_normal = ExtResource("2_pn1em")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Vacuole" type="TextureButton" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture_normal = ExtResource("3_tqh2a")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="SmoothER" type="TextureButton" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture_normal = ExtResource("4_6j23d")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Golgi" type="TextureButton" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture_normal = ExtResource("5_f8ohg")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Mitochondria" type="TextureButton" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture_normal = ExtResource("6_0fp4l")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Nucleus" to="." method="_on_nucleus_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Vacuole" to="." method="_on_vacuole_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/SmoothER" to="." method="_on_smooth_er_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Golgi" to="." method="_on_golgi_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Mitochondria" to="." method="_on_mitochondria_pressed"]

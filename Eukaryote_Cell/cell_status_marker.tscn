@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7smng0rslsfq"]
+
+[ext_resource type="Texture2D" uid="uid://dja8s3ek6hu8q" path="res://Eukaryote_Cell/resources/BarMax.png" id="1_h4mv8"]
+[ext_resource type="Script" uid="uid://coryo7htdkdox" path="res://Eukaryote_Cell/cell_status_marker.gd" id="1_tjelh"]
+[ext_resource type="Texture2D" uid="uid://dvu5y2pdmyaj1" path="res://Eukaryote_Cell/resources/Control!.png" id="2_0ptg0"]
+
+[sub_resource type="Theme" id="Theme_tjelh"]
+default_base_scale = 0.9
+default_font_size = 40
+
+[node name="CellStatusMarker" type="Node2D"]
+script = ExtResource("1_tjelh")
+
+[node name="HP" type="Sprite2D" parent="."]
+position = Vector2(247.00002, 71)
+scale = Vector2(0.1550966, 0.23320363)
+texture = ExtResource("1_h4mv8")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(84.00001, 67)
+scale = Vector2(0.18500002, 0.18500002)
+texture = ExtResource("2_0ptg0")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 36.0
+offset_top = 26.0
+offset_right = 379.0
+offset_bottom = 99.0
+tooltip_text = "\"Control- controlled by order organelles\""
+theme = SubResource("Theme_tjelh")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc7j8tm74gw44"]
+
+[ext_resource type="Script" uid="uid://df5muw428jebr" path="res://Assembiota_Ecosystem/plant_controller.gd" id="1_e1c3k"]
+
+[node name="PlantController" type="Node2D"]
+script = ExtResource("1_e1c3k")

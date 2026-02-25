@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://stl7xq62ejtv"]
+
+[ext_resource type="StyleBox" uid="uid://coop8h1v8yoht" path="res://Eukaryote_Cell/smart_cell_grid.tres" id="1_2c2g8"]
+[ext_resource type="Script" uid="uid://pn03weeska5b" path="res://Eukaryote_Cell/smart_cell_grid.gd" id="1_pyuu7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2c2g8"]
+bg_color = Color(0.92578125, 0.8982067, 0.8100586, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c2g8"]
+size = Vector2(371.5, 361)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyuu7"]
+size = Vector2(381, 370)
+
+[node name="SmartCellGrid" type="Node2D"]
+script = ExtResource("1_pyuu7")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 241.0
+offset_top = -47.0
+offset_right = 1252.0
+offset_bottom = 1244.0
+scale = Vector2(1, 1.0118024)
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("1_2c2g8")
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 44.0
+offset_right = 398.0
+offset_bottom = 399.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2c2g8")
+
+[node name="TitleText" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 40.0
+offset_right = 973.0
+offset_bottom = 324.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 70
+text = "AWAITING ORGANELLE"
+
+[node name="DescripText" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 469.0
+offset_right = 959.0
+offset_bottom = 1238.3842
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "DRAG AN ORGANELLE IN THE TRAY SLOT TO START"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Panel" groups=["droppable"]]
+position = Vector2(0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/StaticBody2D"]
+position = Vector2(223, 223)
+shape = SubResource("RectangleShape2D_2c2g8")
+
+[node name="Area2D" type="Area2D" parent="Panel"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/Area2D"]
+position = Vector2(224, 225)
+shape = SubResource("RectangleShape2D_pyuu7")
+
+[connection signal="area_entered" from="Panel/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Panel/Area2D" to="." method="_on_area_2d_area_exited"]

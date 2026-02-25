@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=3 uid="uid://cfleyj1hv4yu0"]
+
+[ext_resource type="Texture2D" uid="uid://bshf1k7bcgadc" path="res://Eukaryote_Cell/resources/Eukaryote_BG.png" id="1_bf35n"]
+[ext_resource type="Script" uid="uid://0usgrsuvf5kd" path="res://Eukaryote_Cell/cell_base.gd" id="1_kpse7"]
+[ext_resource type="PackedScene" uid="uid://d0upjut0xhh3q" path="res://Eukaryote_Cell/OrganelleBasic.tscn" id="2_dop86"]
+[ext_resource type="PackedScene" uid="uid://stl7xq62ejtv" path="res://Eukaryote_Cell/smart_cell_grid.tscn" id="3_vh0uk"]
+[ext_resource type="PackedScene" uid="uid://7a657jwpuasj" path="res://Eukaryote_Cell/CellStatusUI.tscn" id="4_vg2tv"]
+[ext_resource type="PackedScene" uid="uid://c7smng0rslsfq" path="res://Eukaryote_Cell/cell_status_marker.tscn" id="6_mtr8t"]
+[ext_resource type="PackedScene" uid="uid://cm2lhpxtmvvwc" path="res://Eukaryote_Cell/button_storage_unit.tscn" id="7_oi71a"]
+[ext_resource type="Texture2D" uid="uid://wk3c6ohdcjsj" path="res://Eukaryote_Cell/resources/garbage.png" id="8_7aqjo"]
+[ext_resource type="Texture2D" uid="uid://c6tbntxrjumny" path="res://Assembiota_Ecosystem/resources/returnarrowtemp.png" id="9_uuqtx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kpse7"]
+radius = 16.69391
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7aqjo"]
+size = Vector2(244.21591, 295.63)
+
+[node name="CellBase" type="Node2D"]
+script = ExtResource("1_kpse7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1922.0
+offset_bottom = 1082.0
+mouse_filter = 2
+color = Color(0.9277344, 0.8606911, 0.65956116, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(584.00006, 413.99994)
+rotation = 2.9475203
+scale = Vector2(0.43492845, 0.4349285)
+texture = ExtResource("1_bf35n")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+position = Vector2(-1176.7145, -1048.5194)
+scale = Vector2(1.9133568, 1.9133567)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(87.07621, 43.77361)
+scale = Vector2(0.92942053, 0.930742)
+polygon = PackedVector2Array(-3, 13, -16, 1030, 973, 1052, 1153, 628, 1049, 101, 301, -79, 450, 50, 592, 56, 729, 93, 876, 172, 971, 262, 1036, 359, 1089, 487, 1100, 616, 1066, 739, 1021, 833, 936, 920, 829, 980, 682, 1020, 552, 1017, 418, 997, 285, 940, 171, 850, 82, 741, 24, 606, 11, 405, 62, 272, 143, 180, 268, 105, 441, 51, 2, 0)
+
+[node name="CellStatusUI" parent="." instance=ExtResource("4_vg2tv")]
+position = Vector2(3, 695)
+scale = Vector2(0.7608895, 0.7608895)
+
+[node name="SmartCellGrid" parent="." instance=ExtResource("3_vh0uk")]
+position = Vector2(945.00006, 108)
+scale = Vector2(0.7600006, 0.7600006)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(601, 407.00003)
+scale = Vector2(27.096844, 22.331776)
+shape = SubResource("CircleShape2D_kpse7")
+
+[node name="ControlBar" parent="." instance=ExtResource("6_mtr8t")]
+position = Vector2(16, 814)
+
+[node name="WaterBar" parent="." instance=ExtResource("6_mtr8t")]
+position = Vector2(15, 923)
+
+[node name="EnergyBar" parent="." instance=ExtResource("6_mtr8t")]
+position = Vector2(372, 816)
+
+[node name="TransportBar" parent="." instance=ExtResource("6_mtr8t")]
+position = Vector2(375, 924)
+
+[node name="ButtonStorageUnit" parent="." instance=ExtResource("7_oi71a")]
+position = Vector2(-205.00002, 37)
+scale = Vector2(0.5507113, 0.5507113)
+
+[node name="Garbage" type="Sprite2D" parent="."]
+position = Vector2(960.99994, 940)
+scale = Vector2(0.38900006, 0.38900006)
+texture = ExtResource("8_7aqjo")
+
+[node name="GarbageArea" type="Area2D" parent="Garbage"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Garbage/GarbageArea"]
+position = Vector2(-20.565327, 20.565575)
+scale = Vector2(1.0000007, 1.0000007)
+shape = SubResource("RectangleShape2D_7aqjo")
+
+[node name="OrganelleDomain" type="Node2D" parent="."]
+
+[node name="Mitochondria" parent="OrganelleDomain" instance=ExtResource("2_dop86")]
+position = Vector2(769, 625)
+
+[node name="Mitochondria2" parent="OrganelleDomain" instance=ExtResource("2_dop86")]
+position = Vector2(576, 640)
+
+[node name="Golgi" parent="OrganelleDomain" instance=ExtResource("2_dop86")]
+position = Vector2(383, 520)
+
+[node name="Nucleus" parent="OrganelleDomain" instance=ExtResource("2_dop86")]
+position = Vector2(729, 356)
+
+[node name="SmoothER" parent="OrganelleDomain" instance=ExtResource("2_dop86")]
+position = Vector2(343, 318)
+
+[node name="Vacuole" parent="OrganelleDomain" instance=ExtResource("2_dop86")]
+position = Vector2(556, 186)
+
+[node name="Vacuole2" parent="OrganelleDomain" instance=ExtResource("2_dop86")]
+position = Vector2(556, 359)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 38.0
+offset_top = 624.0
+offset_right = 131.0
+offset_bottom = 730.0
+texture_normal = ExtResource("9_uuqtx")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="area_entered" from="Garbage/GarbageArea" to="." method="_on_garbage_area_area_entered"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

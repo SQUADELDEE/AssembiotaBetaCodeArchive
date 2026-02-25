@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcfipvj1dnyxc"]
+
+[ext_resource type="Script" uid="uid://6t8oth7lky8w" path="res://Assembiota_Ecosystem/world.gd" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://cbexoupsucxwq" path="res://Assembiota_Ecosystem/control_slider.tscn" id="2_1apg3"]
+[ext_resource type="StyleBox" uid="uid://dj1i1568xnnf4" path="res://Assembiota_Ecosystem/button_style.tres" id="3_8fyow"]
+[ext_resource type="Texture2D" uid="uid://c6tbntxrjumny" path="res://Assembiota_Ecosystem/resources/returnarrowtemp.png" id="4_360iv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1apg3"]
+bg_color = Color(1, 0.8787689, 0.5566406, 1)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_f3sb7")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 3.0
+offset_right = 1938.0
+offset_bottom = 1145.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1apg3")
+
+[node name="TankBounds" type="ColorRect" parent="."]
+offset_left = 46.0
+offset_top = 50.0
+offset_right = 1881.0
+offset_bottom = 1046.0
+color = Color(0.39011133, 0.65625, 0.23968506, 1)
+
+[node name="CritterContainer" type="Node2D" parent="."]
+
+[node name="PredatorContainer" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 50
+
+[node name="ControlSlider" parent="CanvasLayer" instance=ExtResource("2_1apg3")]
+position = Vector2(1526, -9)
+scale = Vector2(0.76, 0.76)
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+offset_left = 261.0
+offset_top = 16.0
+offset_right = 482.0
+offset_bottom = 102.0
+theme_override_colors/font_color = Color(0.972549, 0.6039216, 0.21960784, 1)
+theme_override_colors/font_focus_color = Color(0.96484375, 0.54770076, 0.103645325, 1)
+theme_override_colors/font_pressed_color = Color(0.9472656, 0.56102246, 0.14986038, 1)
+theme_override_styles/normal = ExtResource("3_8fyow")
+theme_override_styles/pressed = ExtResource("3_8fyow")
+theme_override_styles/hover = ExtResource("3_8fyow")
+theme_override_styles/disabled = ExtResource("3_8fyow")
+theme_override_styles/focus = ExtResource("3_8fyow")
+text = "Respawn population"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 15.0
+offset_top = 14.0
+offset_right = 236.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0.96484375, 0.54770076, 0.103645325, 1)
+theme_override_colors/font_focus_color = Color(0.972549, 0.6392157, 0.28235295, 1)
+theme_override_colors/font_pressed_color = Color(0.972549, 0.6313726, 0.2627451, 1)
+theme_override_styles/normal = ExtResource("3_8fyow")
+theme_override_styles/pressed = ExtResource("3_8fyow")
+theme_override_styles/hover = ExtResource("3_8fyow")
+theme_override_styles/disabled = ExtResource("3_8fyow")
+theme_override_styles/focus = ExtResource("3_8fyow")
+text = "SPAWN PREDATOR"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 1771.0
+offset_top = 950.0
+offset_right = 1864.0
+offset_bottom = 1056.0
+texture_normal = ExtResource("4_360iv")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
